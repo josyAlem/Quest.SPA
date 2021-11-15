@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "build:prod": "ng build --configuration production",
-    "start:prod": "http-server ./dist -a localhost -p 4200",
+    "start:prod": "http-server ./dist/quest-spa -a localhost -p 4200",
     "build-start": "run-s build:prod start:prod"
   },
   "private": true,
