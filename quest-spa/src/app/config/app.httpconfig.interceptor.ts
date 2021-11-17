@@ -10,7 +10,7 @@ import {
 
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { authResponseModel } from '../auth/auth-response.model';
+import { authResponseModel } from '../auth/model/auth-response.model';
 import { AppConfigService } from './app-config-service';
 import { environment } from 'src/environments/environment';
 

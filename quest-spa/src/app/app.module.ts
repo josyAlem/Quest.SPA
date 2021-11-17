@@ -6,22 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppConfigService, loadConfig } from './config/app-config-service';
 import { AppHttpConfigInterceptor } from './config/app.httpconfig.interceptor';
-import { ContentModule } from './content/content.module';
-import { LayoutModule } from './layout/layout.module';
-import { LoginComponent } from './auth/login/login.component';
+import { MainContentModule } from './main-content/main-content.module';
 import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ContentModule,
-    LayoutModule,
+    MainContentModule,
     AuthModule
   ],
   providers: [

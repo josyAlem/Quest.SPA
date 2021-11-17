@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AppConfigService } from '../config/app-config-service';
 import { environment } from '../../environments/environment';
 import { JsonConvert } from 'json2typescript';
-import { authResponseModel } from './auth-response.model';
+import { authResponseModel } from './model/auth-response.model';
 import { tap, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
