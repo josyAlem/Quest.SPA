@@ -1,19 +1,19 @@
-<mat-drawer-container>
-  <mat-drawer #drawer>
-    <app-side-nav></app-side-nav>
-  </mat-drawer>
-
-  <div class="grid-container">
-    <div class="header">
-      <app-header [sideNav]="drawer"></app-header>
-    </div>
-
-    <div class="main-content">
-      <router-outlet></router-outlet>
-    </div>
-
-    <div class="footer">
-      <app-footer></app-footer>
-    </div>
+<div class="grid-container">
+  <div class="header">
+    <app-header [sideNav]="drawer"></app-header>
   </div>
-</mat-drawer-container>
+  <div class="main-content">
+    <mat-drawer-container>
+      <mat-drawer #drawer>
+        <app-side-nav></app-side-nav>
+      </mat-drawer>
+      <mat-drawer-content>
+        <router-outlet></router-outlet>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>
