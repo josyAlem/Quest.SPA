@@ -1,20 +1,34 @@
-<div class="grid-container">
+<mat-drawer-container  >
+    <mat-drawer #drawer  >
+      <UL>
+          <li>
+              link 1
+          </li>
+          <li>
+            link 2
+        </li>
+        <li>
+            link 3
+        </li>
+      </UL>
+    </mat-drawer>
 
-    <div class="header">
-        <app-header></app-header>
-    </div>
+    <div class="grid-container">
 
-    <div class="main-content">
-        <mat-sidenav-container class="example-container"  >
-            <app-side-nav></app-side-nav>
-
+        <div class="header">
+            <app-header [sidenav]="drawer"></app-header>
+        </div>
+    
+        <div class="main-content">
+            <app-side-nav></app-side-nav>   
             <router-outlet></router-outlet>
-
-        </mat-sidenav-container>
-
+        </div>
+    
+        <div class="footer">
+            <app-footer></app-footer>
+        </div>
     </div>
-
-    <div class="footer">
-        <app-footer></app-footer>
-    </div>
-</div>
+  
+  </mat-drawer-container>
+  
+ 
