@@ -7,14 +7,17 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-   @Input() sidenav!: MatDrawer;
+   @Input() sideNav!: MatDrawer;
   constructor() { }
 
   ngOnInit(): void {
   }
   sideNavToggle(){
-
-    this.sidenav.mode="side";
-    this.sidenav.toggle();
+if(this.sideNav==null)
+console.log("sideNav is null")
+else{
+    this.sideNav.mode="side";
+    this.sideNav.toggle();
   }
+}
 }

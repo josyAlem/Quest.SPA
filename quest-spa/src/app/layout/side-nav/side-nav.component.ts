@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, EventEmitter, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-side-nav',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-nav.component.scss']
 })
 export class SideNavComponent implements OnInit {
-  showFiller:boolean = false;
-  constructor() { }
+
+    constructor() { }
+   
 
   ngOnInit(): void {
+  
   }
 
 }
