@@ -7,6 +7,7 @@ import { HomeModule } from './home/home.module';
 import { HomeComponent } from './home/home.component';
 import { MainContentComponent } from './main-content.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NgMaterialModule } from '../ng-material.module';
 
 
 
@@ -21,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
     LayoutModule,
     AdminModule,
     HomeModule,
+    NgMaterialModule
   ],
   exports:[
     MainContentComponent

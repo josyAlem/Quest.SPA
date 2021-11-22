@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SideNavComponent } from './side-nav/side-nav.component';
+import { NgMaterialModule } from '../ng-material.module';
 
 
 
@@ -9,11 +11,14 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
    HeaderComponent,
     FooterComponent,
+    SideNavComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgMaterialModule
   ],
   exports:[HeaderComponent,
-    FooterComponent]
+    FooterComponent,
+    SideNavComponent]
 })
 export class LayoutModule { }

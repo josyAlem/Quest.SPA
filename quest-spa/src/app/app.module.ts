@@ -8,6 +8,8 @@ import { AppConfigService, loadConfig } from './config/app-config-service';
 import { AppHttpConfigInterceptor } from './config/app.httpconfig.interceptor';
 import { MainContentModule } from './main-content/main-content.module';
 import { AuthModule } from './auth/auth.module';
+import { NgMaterialModule } from './ng-material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,12 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MainContentModule,
-    AuthModule
+    AuthModule,
+    NgMaterialModule
   ],
   providers: [
     {
