@@ -1,12 +1,20 @@
+.sidenav {
+  margin: 1rem;
+}
+
 .sidenav,
 .sidenav-list,
 .sidenav-lbl {
   font-size: 1.5rem;
-  margin: 1rem;
   padding-left: 10px;
 }
 .sidenav-list > li {
   padding-top: 15px;
+  list-style: none;
+  cursor: pointer;
+}
+.sidenav-list > li > * {
+  cursor: pointer;
 }
 .list-divider {
   color: whitesmoke;

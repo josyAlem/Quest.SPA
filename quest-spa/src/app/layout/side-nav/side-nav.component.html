@@ -1,6 +1,6 @@
 <div class="sidenav">
   <ul class="sidenav-list">
-    <li *ngFor="let mainMenu of mainMenus">
+    <li *ngFor="let mainMenu of mainMenus" [routerLink]="mainMenu.routerLink">
       <mat-icon matListIcon class="sidenav-icon">{{ mainMenu.icon }}</mat-icon>
       <label class="sidenav-lbl">{{ mainMenu.name }}</label>
     </li>
@@ -9,7 +9,10 @@
   <hr class="list-divider" />
 
   <ul class="sidenav-list">
-    <li *ngFor="let extraMenu of extraMenus">
+    <li
+      *ngFor="let extraMenu of extraMenus"
+      [routerLink]="extraMenu.routerLink"
+    >
       <mat-icon matListIcon class="sidenav-icon">{{ extraMenu.icon }}</mat-icon>
       <label class="sidenav-lbl">{{ extraMenu.name }}</label>
     </li>
