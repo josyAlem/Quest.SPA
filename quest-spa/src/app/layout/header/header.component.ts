@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import {  MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -7,17 +7,13 @@ import {  MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-   @Input() sideNav!: MatSidenav;
+  @Output() sideNavToggle=new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
   }
-  sideNavToggle(){
-if(this.sideNav==null)
-console.log("sideNav is null")
-else{
-    this.sideNav.mode="side";
-    this.sideNav.toggle();
+  sideMenuBtnToggle(){
+this.sideNavToggle.emit();
+
   }
-}
 }

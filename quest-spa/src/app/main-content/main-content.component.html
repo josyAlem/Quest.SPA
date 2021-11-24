@@ -1,6 +1,6 @@
 <div class="grid-container">
   <div class="header">
-    <app-header [sideNav]="sidenav"></app-header>
+    <app-header (sideNavToggle)="sideMenuToggle()"></app-header>
   </div>
   <div class="main-content">
     <mat-sidenav-container>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
   selector: 'app-side-nav',
@@ -13,5 +13,5 @@ export class SideNavComponent implements OnInit {
   ngOnInit(): void {
   
   }
-
+ 
 }
