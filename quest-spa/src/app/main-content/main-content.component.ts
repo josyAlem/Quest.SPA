@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit, Output } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-content',
@@ -7,14 +7,14 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./main-content.component.scss']
 })
 export class MainContentComponent implements OnInit{
-   sideNav_out!: MatDrawer;
+   sideNav_out!: MatSidenav;
 
   constructor() { }
  
 
   ngOnInit(): void {
   }
-  sideNavInit(sideNav:MatDrawer){
+  sideNavInit(sideNav:MatSidenav){
 this.sideNav_out=sideNav;
   }
 }

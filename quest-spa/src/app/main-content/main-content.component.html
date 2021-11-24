@@ -1,16 +1,16 @@
 <div class="grid-container">
   <div class="header">
-    <app-header [sideNav]="drawer"></app-header>
+    <app-header [sideNav]="sidenav"></app-header>
   </div>
   <div class="main-content">
-    <mat-drawer-container>
-      <mat-drawer #drawer>
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav>
         <app-side-nav></app-side-nav>
-      </mat-drawer>
-      <mat-drawer-content>
+      </mat-sidenav>
+      <mat-sidenav-content class="sidenav-content">
         <router-outlet></router-outlet>
-      </mat-drawer-content>
-    </mat-drawer-container>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
   </div>
 
   <div class="footer">

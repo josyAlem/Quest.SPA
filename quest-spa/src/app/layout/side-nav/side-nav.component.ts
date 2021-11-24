@@ -1,5 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, EventEmitter, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'app-side-nav',

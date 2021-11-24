@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatDrawer } from '@angular/material/sidenav';
+import {  MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,7 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-   @Input() sideNav!: MatDrawer;
+   @Input() sideNav!: MatSidenav;
   constructor() { }
 
   ngOnInit(): void {
