@@ -1,13 +1,17 @@
 <div class="sidenav">
-    <UL>
-  <li>
-      link 1
-  </li>
-  <li>
-    link 2
-</li>
-<li>
-    link 3
-</li>
-</UL>
+  <ul class="sidenav-list">
+    <li *ngFor="let mainMenu of mainMenus">
+      <mat-icon matListIcon class="sidenav-icon">{{ mainMenu.icon }}</mat-icon>
+      <label class="sidenav-lbl">{{ mainMenu.name }}</label>
+    </li>
+  </ul>
+
+  <hr class="list-divider" />
+
+  <ul class="sidenav-list">
+    <li *ngFor="let extraMenu of extraMenus">
+      <mat-icon matListIcon class="sidenav-icon">{{ extraMenu.icon }}</mat-icon>
+      <label class="sidenav-lbl">{{ extraMenu.name }}</label>
+    </li>
+  </ul>
 </div>
