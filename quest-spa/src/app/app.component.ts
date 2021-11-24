@@ -7,14 +7,13 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-constructor(private authSvc:AuthService)
-{
+  constructor(private authSvc: AuthService) {
 
-}
-onLogin(){
-this.authSvc.login();
-}
-onValidate(){
-  this.authSvc.validate();
+  }
+  onLogin() {
+    this.authSvc.login();
+  }
+  onValidate() {
+    this.authSvc.validate();
   }
 }

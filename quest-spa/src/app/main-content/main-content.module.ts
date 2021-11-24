@@ -1,13 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { LayoutModule } from '../layout/layout.module';
-import { MainContentRoutingModule } from './main-content-routing.module';
+import { NgMaterialModule } from '../ng-material.module';
 import { AdminModule } from './admin/admin.module';
 import { HomeModule } from './home/home.module';
-import { HomeComponent } from './home/home.component';
+import { MainContentRoutingModule } from './main-content-routing.module';
 import { MainContentComponent } from './main-content.component';
 import { ProfileComponent } from './profile/profile.component';
-import { NgMaterialModule } from '../ng-material.module';
 
 
 
@@ -24,7 +23,7 @@ import { NgMaterialModule } from '../ng-material.module';
     HomeModule,
     NgMaterialModule
   ],
-  exports:[
+  exports: [
     MainContentComponent
   ]
 })

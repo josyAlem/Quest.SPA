@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
+import { CartComponent } from './cart/cart.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { CartComponent } from './cart/cart.component';
+
 
 
 @NgModule({
@@ -15,6 +15,6 @@ import { CartComponent } from './cart/cart.component';
     CommonModule,
     HomeRoutingModule
   ],
-  exports:[HomeComponent]
+  exports: [HomeComponent]
 })
 export class HomeModule { }

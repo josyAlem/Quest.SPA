@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
-import {  MatSidenav } from '@angular/material/sidenav';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,13 +6,20 @@ import {  MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Output() sideNavToggle=new EventEmitter<void>();
+  @Output() sideNavToggle = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
   }
-  sideMenuBtnToggle(){
-this.sideNavToggle.emit();
+  sideMenuBtnToggle() {
+    this.sideNavToggle.emit();
 
   }
+  login() {
+
+  }
+  signup() {
+
+  }
+
 }

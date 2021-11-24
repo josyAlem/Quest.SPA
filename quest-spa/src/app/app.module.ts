@@ -1,15 +1,15 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './auth/auth.module';
 import { AppConfigService, loadConfig } from './config/app-config-service';
 import { AppHttpConfigInterceptor } from './config/app.httpconfig.interceptor';
 import { MainContentModule } from './main-content/main-content.module';
-import { AuthModule } from './auth/auth.module';
 import { NgMaterialModule } from './ng-material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       multi: true
     }
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

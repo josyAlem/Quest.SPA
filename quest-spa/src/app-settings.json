@@ -1,5 +1,4 @@
-{ 
-    "APIBaseUrl": "https://quest-services-api.herokuapp.com/api",
-    "APIKey": "ZdY4Jf4BatEePpcBRDbj4IfugjfMLiqE"
-   }
- 
+{
+  "APIBaseUrl": "https://quest-services-api.herokuapp.com/api",
+  "APIKey": "ZdY4Jf4BatEePpcBRDbj4IfugjfMLiqE"
+}

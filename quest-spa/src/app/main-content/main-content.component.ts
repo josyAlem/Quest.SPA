@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -6,20 +6,20 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './main-content.component.html',
   styleUrls: ['./main-content.component.scss']
 })
-export class MainContentComponent implements OnInit{
+export class MainContentComponent implements OnInit {
   @ViewChild('sidenav') sideNavEl!: MatSidenav;
   constructor() { }
- 
+
 
   ngOnInit(): void {
   }
 
-  sideMenuToggle(){
-    if(this.sideNavEl==null)
-    console.log("sideNav is null")
-    else{
-        this.sideNavEl.mode="side";
-        this.sideNavEl.toggle();
-      }
+  sideMenuToggle() {
+    if (this.sideNavEl == null)
+      console.log("sideNav is null")
+    else {
+      this.sideNavEl.mode = "side";
+      this.sideNavEl.toggle();
     }
+  }
 }

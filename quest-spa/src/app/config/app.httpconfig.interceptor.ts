@@ -1,32 +1,28 @@
-import { Injectable } from '@angular/core';
 import {
-    HttpInterceptor,
+    HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor,
     HttpRequest,
-    HttpResponse,
-    HttpHandler,
-    HttpEvent,
-    HttpErrorResponse
+    HttpResponse
 } from '@angular/common/http';
-
+import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { authResponseModel } from '../auth/model/auth-response.model';
 import { AppConfigService } from './app-config-service';
-import { environment } from 'src/environments/environment';
+
 
 @Injectable()
 export class AppHttpConfigInterceptor implements HttpInterceptor {
     constructor(private _appConfig: AppConfigService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const exceptionUrls: string[] = 
-        [this. _appConfig.settings.APIBaseUrl + environment.auth.login,
-            this. _appConfig.settings.APIBaseUrl + environment.auth.signup]; 
-        if(exceptionUrls.includes(request.url.toString()))
-        {
+        const exceptionUrls: string[] =
+            [this._appConfig.settings.APIBaseUrl + environment.auth.login,
+            this._appConfig.settings.APIBaseUrl + environment.auth.signup];
+        if (exceptionUrls.includes(request.url.toString())) {
             return next.handle(request);
         }
-       
+
         const authModelFromStorage: string | null = localStorage.getItem('authmodel');
         if (authModelFromStorage) {
             const authModel: authResponseModel | null = JSON.parse(authModelFromStorage.toString());
