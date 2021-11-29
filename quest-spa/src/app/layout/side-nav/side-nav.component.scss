@@ -1,5 +1,6 @@
 .sidenav {
   margin: 1rem;
+  text-align: left;
 }
 
 .sidenav,
@@ -9,6 +10,7 @@
   padding-left: 10px;
 }
 .sidenav-list > li {
+  align-content: flex-start;
   padding-top: 15px;
   list-style: none;
   cursor: pointer;

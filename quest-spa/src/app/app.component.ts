@@ -10,10 +10,5 @@ export class AppComponent {
   constructor(private authSvc: AuthService) {
 
   }
-  onLogin() {
-    this.authSvc.login();
-  }
-  onValidate() {
-    this.authSvc.validate();
-  }
+
 }

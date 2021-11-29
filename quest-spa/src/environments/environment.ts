@@ -4,11 +4,10 @@
 
 export const environment = {
   production: false,
-  auth:{
-    signup:"/auth/signup",
-    login:"/auth/login",
-    refresh:"/auth/refresh",
-    validate:"/auth/validate"
+  auth: {
+    signup: "/auth/signup",
+    login: "/auth/login",
+    refresh: "/auth/refresh"
   }
 };
 

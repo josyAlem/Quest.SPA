@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgMaterialModule } from 'src/app/ng-material.module';
 import { CartComponent } from './cart/cart.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -13,7 +14,9 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    NgMaterialModule
+
   ],
   exports: [HomeComponent]
 })
