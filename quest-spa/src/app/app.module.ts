@@ -26,16 +26,17 @@ import { NgMaterialModule } from './ng-material.module';
   ],
   providers: [
     {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AppHttpConfigInterceptor,
-      multi: true,
-    },
-    {
       provide: APP_INITIALIZER,
       useFactory: loadConfig,
       deps: [AppConfigService],
       multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpConfigInterceptor,
+      multi: true,
     }
+
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]

@@ -16,6 +16,9 @@ export class AppHttpConfigInterceptor implements HttpInterceptor {
     constructor(private _appConfig: AppConfigService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        if (request.url.toString() == this._appConfig.settingsFilePath) {
+            return next.handle(request);
+        }
         const exceptionUrls: string[] =
             [this._appConfig.settings.APIBaseUrl + environment.auth.login,
             this._appConfig.settings.APIBaseUrl + environment.auth.signup];
