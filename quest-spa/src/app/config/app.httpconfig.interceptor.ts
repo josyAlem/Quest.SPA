@@ -7,13 +7,13 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { authResponseModel } from '../auth/model/auth-response.model';
+import { AuthService } from '../auth/auth.service';
 import { AppConfigService } from './app-config-service';
 
 
 @Injectable()
 export class AppHttpConfigInterceptor implements HttpInterceptor {
-    constructor(private _appConfig: AppConfigService) { }
+    constructor(private _appConfig: AppConfigService, private _authSvc: AuthService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         if (request.url.toString() == this._appConfig.settingsFilePath) {
@@ -27,13 +27,10 @@ export class AppHttpConfigInterceptor implements HttpInterceptor {
         }
 
         const authModelFromStorage: string | null = localStorage.getItem('authmodel');
-        if (authModelFromStorage) {
-            const authModel: authResponseModel | null = JSON.parse(authModelFromStorage.toString());
-            if (authModel && authModel.accessToken) {
-                request = request.clone({
-                    headers: request.headers.set('Authorization', 'Bearer ' + authModel.accessToken)
-                });
-            }
+        if (this._authSvc.isAuthenticated) {
+            request = request.clone({
+                headers: request.headers.set('Authorization', 'Bearer ' + this._authSvc.authToken)
+            });
         }
         if (!request.headers.has('Content-Type')) {
             request = request.clone({

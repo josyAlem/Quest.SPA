@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { adminRoutes } from './admin/admin-routing.module';
 import { homeRoutes } from './home/home-routing.module';
-import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 export const mainContentRoutes: Routes =
-  [{ path: "home", children:homeRoutes },
-  { path: "admin",children:adminRoutes  },
+  [{ path: "home", children: homeRoutes },
+  { path: "admin", children: adminRoutes },
   { path: "profile", component: ProfileComponent },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "**", redirectTo: "home", pathMatch: "full" }
   ];
 
