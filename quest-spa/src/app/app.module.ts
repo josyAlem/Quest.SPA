@@ -26,10 +26,14 @@ import { NgMaterialModule } from './ng-material.module';
   ],
   providers: [
     {
+      provide: 'appConfigPath',
+      useValue: './assets/app-settings.json'
+    },
+    {
       provide: APP_INITIALIZER,
       useFactory: loadConfig,
       deps: [AppConfigService],
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,

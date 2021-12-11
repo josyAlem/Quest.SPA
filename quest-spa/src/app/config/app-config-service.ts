@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable, Injector } from "@angular/core";
+import { Inject, Injectable, Injector } from "@angular/core";
 import { JsonConvert, JsonObject, JsonProperty } from "json2typescript";
 
 @JsonObject("AppSettings")
@@ -19,8 +19,8 @@ export function loadConfig(config: AppConfigService) {
     providedIn: 'root',
 })
 export class AppConfigService {
-    constructor(private injector: Injector) { }
-    public settingsFilePath: string = '/assets/app-settings.json';
+    constructor(private injector: Injector, @Inject('appConfigPath') public settingsFilePath: string) { }
+
     private config!: AppSettings;
     load() {
         let http = this.injector.get(HttpClient);
@@ -32,7 +32,9 @@ export class AppConfigService {
                     this.config = jsonConvert.deserializeObject(data, AppSettings);
                     return;
                 },
-                error: (e) => console.error(e)
+                error: (e) => {
+                    console.error(e);
+                }
             });
     }
 
