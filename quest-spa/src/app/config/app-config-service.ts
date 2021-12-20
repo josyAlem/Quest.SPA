@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Inject, Injectable, Injector } from "@angular/core";
 import { JsonConvert, JsonObject, JsonProperty } from "json2typescript";
-
 @JsonObject("AppSettings")
 export class AppSettings {
 
