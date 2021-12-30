@@ -1,43 +1,9 @@
-<div class="card-container">
-  <form novalidate [formGroup]="_localDataForm">
-    <div class="card-row">
-      <div class="card-label">
-        <label for="user_name">Email/ Username</label>
-      </div>
-      <div class="card-control">
-        <input
-          type="text"
-          id="user_name"
-          name="user_name"
-          formControlName="user_name"
-          placeholder="Email address/username"
-        />
-      </div>
-      <span class="error-block" *ngIf="validateForm('user_name')">
-        {{ _errMessage }}
-      </span>
-    </div>
-    <div class="card-row">
-      <div class="card-label">
-        <label for="user_pwd">Passsword</label>
-      </div>
-      <div class="card-control">
-        <input
-          type="password"
-          id="user_pwd"
-          name="user_pwd"
-          formControlName="user_pwd"
-          placeholder="Password...."
-        />
-      </div>
-      <span class="error-block" *ngIf="validateForm('user_pwd')">
-        {{ _errMessage }}
-      </span>
-    </div>
-    <div class="card-row">
-      <button (click)="login()" [disabled]="!_localDataForm.valid">
-        Login
-      </button>
-    </div>
-  </form>
+<div class="form-container">
+  <studio-ui-tmpl-form
+    [formData]="formData"
+    [formSubmitType]="formSubmitType"
+    [dataModel]="dataModel"
+    [submitFormTitle]="submitFormTitle"
+    (onFormSubmit)="submitForm($event)"
+  ></studio-ui-tmpl-form>
 </div>

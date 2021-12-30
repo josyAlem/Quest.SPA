@@ -32,8 +32,7 @@ export class AuthService {
         localStorage.setItem('authmodel', JSON.stringify(authModel));
         return;
       }), catchError((err: HttpErrorResponse) => {
-        console.error('login failed: ', err);
-        return throwError(() => new Error(err.message));
+        return throwError(() => new Error(this.parseError(err)));
       }));
 
   }
@@ -90,5 +89,14 @@ export class AuthService {
 
     }, duration);
   }
+  parseError(error: any): string {
+    if (error != null) {
+      if (error.error && error.error.error_description)
+        return error.error.error_description;
+      else
+        return error.message;
+    }
 
+    return '';
+  }
 }

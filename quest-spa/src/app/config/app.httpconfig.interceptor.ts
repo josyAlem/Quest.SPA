@@ -26,7 +26,6 @@ export class AppHttpConfigInterceptor implements HttpInterceptor {
             return next.handle(request);
         }
 
-        const authModelFromStorage: string | null = localStorage.getItem('authmodel');
         if (this._authSvc.isAuthenticated) {
             request = request.clone({
                 headers: request.headers.set('Authorization', 'Bearer ' + this._authSvc.authToken)
@@ -57,7 +56,7 @@ export class AppHttpConfigInterceptor implements HttpInterceptor {
                 reason: error && error.error && error.error.reason ? error.error.reason : '',
                 status: error.status
             };
-            console.error('interceptor failed on handlint event--->>>', data);
+            console.error('interceptor failed on handling event--->>>', data);
             return throwError(() => new Error(error.message));
         }));
     }

@@ -9,7 +9,15 @@
     "test": "ng test",
     "build:prod": "ng build --configuration production",
     "start:prod": "http-server ./dist/quest-spa -a localhost -p 4200",
-    "build-start": "run-s build:prod start:prod"
+    "build-start": "run-s build:prod start:prod",
+    "build-image": "docker image build -t josyalem/quest-spa:v1 .",
+    "remove-image": "docker image rm josyalem/quest-spa:v1",
+    "dockerize": "run-s build:prod build-image",
+    "run-container": "docker run -d --rm -it --name quest-spa -p 127.0.0.1:5050:80  josyalem/quest-spa:v1",
+    "stop-container": "docker container stop quest-spa",
+    "remove-container": "docker container rm quest-spa",
+    "cleanup-container": "run-s stop-container remove-container",
+    "container-terminal": "docker exec -it quest-spa /bin/sh"
   },
   "private": true,
   "dependencies": {
@@ -27,6 +35,8 @@
     "http-server": "^14.0.0",
     "json2typescript": "^1.5.0-rc.0",
     "rxjs": "~7.4.0",
+    "studio-auth": "0.0.1",
+    "studio-ui-tmpl": "0.0.7",
     "tslib": "^2.3.0",
     "underscore": "^1.13.1",
     "zone.js": "~0.11.4"
