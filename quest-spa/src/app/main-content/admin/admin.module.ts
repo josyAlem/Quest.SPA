@@ -19,7 +19,7 @@ import { ReportComponent } from './report/report.component';
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(adminRoutes),
+    RouterModule.forChild(adminRoutes),
     NgMaterialModule
   ]
 })
