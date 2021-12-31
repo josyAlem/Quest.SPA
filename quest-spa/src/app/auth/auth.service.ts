@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JsonConvert } from 'json2typescript';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -13,7 +14,7 @@ export class AuthService {
   authData$!: BehaviorSubject<authData | null>;
   autoLogoutTimeOut: any;
 
-  constructor(private _http: HttpClient, private _appConfig: AppConfigService) {
+  constructor(private _http: HttpClient, private _appConfig: AppConfigService, private _router: Router) {
     this.authData$ = new BehaviorSubject<authData | null>(null);
   }
 
@@ -23,19 +24,24 @@ export class AuthService {
     return this._http.post(url, payload)
       .pipe(map((t) => {
         console.log("login successful");
-        const jsonConvert = new JsonConvert();
-        var authModel: AuthDataStore = jsonConvert.deserializeObject(t, AuthDataStore);
-        authModel.loginDate = new Date();
-        var authDataObj = new authData(authModel);
-        this.authData$.next(authDataObj);
-        this.autoLogout(authDataObj.tokenDuration);
-        localStorage.setItem('authmodel', JSON.stringify(authModel));
+        this.storeToken(t);
         return;
       }), catchError((err: HttpErrorResponse) => {
         return throwError(() => new Error(this.parseError(err)));
       }));
 
   }
+  storeToken(t: any) {
+    const jsonConvert = new JsonConvert();
+    var authModel: AuthDataStore = jsonConvert.deserializeObject(t, AuthDataStore);
+    authModel.loginDate = new Date();
+    var authDataObj = new authData(authModel);
+    this.authData$.next(authDataObj);
+    this.autoLogout(authDataObj.tokenDuration);
+
+    localStorage.setItem('authmodel', JSON.stringify(authModel));
+  }
+
 
   logout() {
     if (this.autoLogoutTimeOut) {
@@ -44,7 +50,6 @@ export class AuthService {
     this.authData$.next(null);
 
     localStorage.removeItem('authmodel');
-    //go to login page
   }
 
   autoLogin(): Observable<boolean> {
@@ -79,6 +84,16 @@ export class AuthService {
       }
     }));
   }
+  get isAdmin(): Observable<boolean> {
+    return this.authData$.asObservable().pipe(map(c => {
+      if (c != null) {
+        return c.isAdmin;
+      }
+      else {
+        return false;
+      }
+    }));
+  }
 
   autoLogout(duration: number) {
     if (this.autoLogoutTimeOut) {
@@ -98,5 +113,14 @@ export class AuthService {
     }
 
     return '';
+  }
+  goToLoginPage() {
+    this._router.navigateByUrl('/auth');
+  }
+  goToHomePage() {
+    this._router.navigateByUrl('/');
+  }
+  goToAdminPage() {
+    this._router.navigateByUrl('/admin/dashboard');
   }
 }

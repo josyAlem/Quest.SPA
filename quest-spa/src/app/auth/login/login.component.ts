@@ -32,7 +32,14 @@ export class LoginComponent implements OnInit {
   login(payload: any) {
     return this._authSvc.login(payload).subscribe({
       next: () => {
-        alert("Logged in");
+        //alert("Logged in");
+        this._authSvc.isAdmin.subscribe({
+          next: (result) => {
+            if (result === true) this._authSvc.goToAdminPage();
+            else
+              this._authSvc.goToHomePage();
+          }
+        });
       }
       , error: (error: Error) => {
         alert("Login failed! " + error.message);
@@ -43,6 +50,7 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this._authSvc.logout();
+    this._authSvc.goToHomePage();
   }
 
 }

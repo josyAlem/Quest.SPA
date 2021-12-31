@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { StudioUiTmplModule } from 'studio-ui-tmpl';
-import { AuthRoutingModule } from './auth-routing.module';
+import { authRoutes } from './auth-routes';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -15,7 +16,7 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
+    RouterModule.forChild(authRoutes),
     FormsModule,
     ReactiveFormsModule,
     StudioUiTmplModule

@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NgMaterialModule } from '../../ng-material.module';
-import { AdminRoutingModule } from './admin-routing.module';
+import { adminRoutes } from './admin-routes';
 import { CartComponent } from './cart/cart.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,7 +19,7 @@ import { ReportComponent } from './report/report.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    RouterModule.forChild(adminRoutes),
     NgMaterialModule
   ]
 })
