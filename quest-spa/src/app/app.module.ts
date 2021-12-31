@@ -2,7 +2,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app-routes';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AppConfigService, loadConfig } from './config/app-config-service';
@@ -18,7 +19,7 @@ import { NgMaterialModule } from './ng-material.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     MainContentModule,
     AuthModule,

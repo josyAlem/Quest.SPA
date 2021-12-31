@@ -26,9 +26,10 @@ export class AppHttpConfigInterceptor implements HttpInterceptor {
             return next.handle(request);
         }
 
-        if (this._authSvc.isAuthenticated) {
+        var authDataObj = this._authSvc.authModel;
+        if (authDataObj != null && authDataObj.token != null) {
             request = request.clone({
-                headers: request.headers.set('Authorization', 'Bearer ' + this._authSvc.authToken)
+                headers: request.headers.set('Authorization', 'Bearer ' + authDataObj.token)
             });
         }
         if (!request.headers.has('Content-Type')) {

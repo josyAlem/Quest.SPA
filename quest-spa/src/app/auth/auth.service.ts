@@ -53,25 +53,24 @@ export class AuthService {
   }
 
   autoLogin(): Observable<boolean> {
-    const authModelFromStorage: string | null = localStorage.getItem('authmodel');
-    if (authModelFromStorage != null) {
-      var authModel: AuthDataStore = JSON.parse(authModelFromStorage.toString());
-      var authDataObj = new authData(authModel);
-      if (authDataObj.token != null) {
-        this.authData$.next(authDataObj);
-        this.autoLogout(authDataObj.tokenDuration);
-        return of(true);
-      }
+    var authDataObj = this.authModel;
+    if (authDataObj != null && authDataObj.token != null) {
+      this.authData$.next(authDataObj);
+      this.autoLogout(authDataObj.tokenDuration);
+      return of(true);
     }
 
     return of(false);
   }
 
-  get authToken(): Observable<string | null> {
-    return this.authData$.asObservable().pipe(map(c => {
-      if (c == null) { return null; }
-      else { return c.token; }
-    }));
+  get authModel(): authData | null {
+    const authModelFromStorage: string | null = localStorage.getItem('authmodel');
+    if (authModelFromStorage != null) {
+      var authModel: AuthDataStore = JSON.parse(authModelFromStorage.toString());
+      var authDataObj = new authData(authModel);
+      return authDataObj;
+    }
+    return null;
   }
 
   get isAuthenticated(): Observable<boolean> {

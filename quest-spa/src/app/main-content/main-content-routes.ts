@@ -7,12 +7,18 @@ import { ProfileComponent } from "./profile/profile.component";
 
 export const mainContentRoutes: Routes =
   [
-    { path: "", component: MainContentComponent },
-    { path: "cart", component: CartComponent, canActivate: [UserAuthGuard] },
+    {
+      path: "", component: MainContentComponent,
+    },
+    {
+      path: "cart", component: CartComponent, canActivate: [UserAuthGuard],
+    },
     {
       path: "admin",
       loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-      canActivate: [AdminAuthGuard]
+      canActivate: [AdminAuthGuard],
     },
-    { path: "profile", component: ProfileComponent, canActivate: [UserAuthGuard] },
+    {
+      path: "profile", component: ProfileComponent, canActivate: [UserAuthGuard],
+    },
   ];

@@ -17,11 +17,11 @@ export const adminRoutes: Routes =
     },
     {
       path: "admin/catalog", component: CatalogComponent,
-      canActivate: [AdminAuthGuard]
+      canActivate: [AdminAuthGuard],
     },
     {
       path: "admin/report", component: ReportComponent,
-      canActivate: [AdminAuthGuard]
+      canActivate: [AdminAuthGuard],
     },
     {
       path: "admin", redirectTo: "admin/dashboard"

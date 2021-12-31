@@ -19,7 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(mainContentRoutes),
+    RouterModule.forRoot(mainContentRoutes),
     LayoutModule,
     AdminModule,
     NgMaterialModule
