@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { StudioUiTmplModule } from 'studio-ui-tmpl';
+import { StudioUiTmplModule } from '@josyalem-studio/ui-tmpl';
 import { authRoutes } from './auth-routes';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';

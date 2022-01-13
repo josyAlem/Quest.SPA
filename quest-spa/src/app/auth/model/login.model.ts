@@ -1,5 +1,5 @@
 import { Validators } from '@angular/forms';
-import { FormCtrlType, IDataModel, IDataModelField, IDataModelValidator } from 'studio-ui-tmpl';
+import { FormCtrlType, IDataModel, IDataModelField, IDataModelValidator } from '@josyalem-studio/ui-tmpl';
 export class LoginModel {
   constructor(
     public username?: string,

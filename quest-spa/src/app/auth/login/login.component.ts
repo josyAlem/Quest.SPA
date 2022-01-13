@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { formSubmitType } from 'studio-ui-tmpl';
+import { formSubmitType } from '@josyalem-studio/ui-tmpl';
 import { AuthService } from '../auth.service';
 import { LoginModel } from '../model/login.model';
 
